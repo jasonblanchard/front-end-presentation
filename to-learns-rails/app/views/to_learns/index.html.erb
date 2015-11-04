@@ -1,0 +1,23 @@
+<%= render 'form', :to_learn => @new_to_learn, :errors => @errors %>
+
+<hr />
+<div>
+  <%= form_tag :controller => :to_learn_collections, :action => :update do %>
+    <%= hidden_field_tag '_method', 'put' %>
+    <ul>
+      <% @to_learns.each do |to_learn| %>
+        <li class="to-learn <%= to_learn.completed ? 'completed' : 'uncomplete'%>">
+          <%= check_box_tag 'completed_to_learns[]', to_learn.id, to_learn.completed %>
+          <%= to_learn.name %>
+          <%= hidden_field_tag 'all_to_learns[]', to_learn.id %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= submit_tag 'update' %>
+  <% end %>
+</div>
+
+<div class="stats">
+  completed: <%= @completed_count %> | uncompleted: <%= @uncompleted_count %>
+</div>

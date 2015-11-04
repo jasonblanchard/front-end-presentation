@@ -1,0 +1,14 @@
+<%= form_for :to_learn do |f| %>
+  <%= f.label :name %> (less than 140 characters)
+  <%= f.text_field :name %>
+
+  <div class='errors'>
+    <% if errors && !errors.empty? %>
+      <% errors.each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
