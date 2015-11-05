@@ -1,6 +1,9 @@
-Index
-<ul>
-  {{#each model as toDo}}
-    <li>{{name}}</li>
+<ul class="to-learns">
+  {{#each toLearns}}
+  <li {{bind-attr class="completed"}}>{{input type="checkbox" checked=completed action="completeToLearn"}} {{name}}</li>
   {{/each}}
 </ul>
+
+<div class="stats">
+  total: {{total}} | completed: {{completed}} | uncompleted: {{uncompleted}}
+</div>

@@ -1,0 +1,11 @@
+.to-learns {
+  list-style: none;
+}
+
+.to-learns li.completed {
+  text-decoration: line-through;
+}
+
+.is-in-valid-input, .error {
+  color: red;
+}

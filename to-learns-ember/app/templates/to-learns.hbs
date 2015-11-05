@@ -1,5 +1,13 @@
-{{input type="text" id="new-to-learn" placeholder="What needs to be done?" value=newName}}
+<form {{action "createToLearn" on="submit"}}>
+  <div class="error">
+    {{error}}
+  </div>
+  {{input type="text" id="new-to-learn" placeholder="What needs to be done?" value=newName}}
+  <input type="submit" value="Add"/>
+  <span {{bind-attr class="isInValidInput"}}>
+    {{characterCount}}
+  </span>
+</form>
 
-<button {{action "createToLearn"}}>Add</button>
 
 {{outlet}}
