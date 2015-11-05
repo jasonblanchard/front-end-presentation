@@ -11,4 +11,9 @@ class ToLearnCollectionsController < ApplicationController
 
     redirect_to to_learns_path
   end
+
+  def destroy
+    ToLearn.where(:completed => true).destroy_all
+    redirect_to to_learns_path
+  end
 end

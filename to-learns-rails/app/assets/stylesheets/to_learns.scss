@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .to-learn {
+  list-style: none;
+
   &.uncomplete {
     font-weight: bold;
   }
@@ -13,7 +15,7 @@
 }
 
 .errors {
-  color: #A83E3E;
+  color: #980303;
 }
 
 .field_with_errors {

@@ -1,6 +1,5 @@
 <%= render 'form', :to_learn => @new_to_learn, :errors => @errors %>
 
-<hr />
 <div>
   <%= form_tag :controller => :to_learn_collections, :action => :update do %>
     <%= hidden_field_tag '_method', 'put' %>
@@ -14,10 +13,15 @@
       <% end %>
     </ul>
 
-    <%= submit_tag 'update' %>
+    <%= submit_tag 'Mark as complete' %>
   <% end %>
 </div>
 
 <div class="stats">
   completed: <%= @completed_count %> | uncompleted: <%= @uncompleted_count %>
 </div>
+
+<%= form_tag :controller => :to_learn_collections, :action => :update do %>
+  <%= hidden_field_tag '_method', 'delete' %>
+  <%= submit_tag 'Delete completed' %>
+<% end %>

@@ -48,8 +48,9 @@ So how are people solving this problem?
 
 ## Two-way data bindings with Ember
 
-- Angular works similarly, used to be super popular, still is (maybe)
-- Great place to start - low barrier to entry, best practices built in, familiar to Rails folks, integration with Rails API
+- Angular - works similarly, used to be super popular, still is (maybe)
+- Ember - Great place to start
+  - low barrier to entry, best practices built in, familiar to Rails folks (MVC-ish), existing integration with Rails API
 - The router + SPAs - URL is just another piece of state
 
 ---
@@ -81,5 +82,9 @@ So how are people solving this problem?
 ## Challenges with front-end frameworks
 
 - Complexity
-- Authentication is challenging
+- Hard things are easy and easy things are hard
+ - Authentication/authorization
+ - Global application state, like flash messages
+- SEO is weird
+- avoiding "loading" spinners is tricky
 - Still young and changing like crazy

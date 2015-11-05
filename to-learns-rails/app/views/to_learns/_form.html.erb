@@ -1,6 +1,8 @@
 <%= form_for :to_learn do |f| %>
-  <%= f.label :name %> (less than 140 characters)
-  <%= f.text_field :name %>
+  <%= f.label :name, 'To learn: (less than 140 characters)' %>
+  <div>
+    <%= f.text_field :name %>
+  </div>
 
   <div class='errors'>
     <% if errors && !errors.empty? %>
@@ -10,5 +12,5 @@
     <% end %>
   </div>
 
-  <%= f.submit %>
+  <%= f.submit 'Add' %>
 <% end %>

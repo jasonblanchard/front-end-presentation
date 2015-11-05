@@ -6,6 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.resource('to-learns', {path: '/to-learns'}, function() {
+
+  });
+  this.route('to-learns', function() {});
 });
 
 export default Router;

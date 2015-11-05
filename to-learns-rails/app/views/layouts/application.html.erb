@@ -2,13 +2,24 @@
 <html>
 <head>
   <title>ToLearnsRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <header class="clearfix">
+    <h1><%= link_to "Stuff To Learn", root_path %></h1>
+    <nav>
+      <ul>
+        <li><%= link_to 'about', about_path %></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
