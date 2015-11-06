@@ -14,7 +14,9 @@ export default class ToLearnsList extends Component {
   }
 
   renderToLearn(toLearn) {
-    return <li key={toLearn.id}><input type="checkbox" value={toLearn.id} onChange={this.handleChange}/>{toLearn.name}</li>;
+    const classNames = toLearn.completed ? 'completed' : 'uncomplete';
+
+    return <li key={toLearn.id} className={classNames}><input type="checkbox" value={toLearn.id} checked={toLearn.completed} onChange={this.handleChange}/>{toLearn.name}</li>;
   }
 
   render() {
@@ -22,7 +24,7 @@ export default class ToLearnsList extends Component {
 
     return (
       <div>
-        <ul>
+        <ul className="to-learns">
           {toLearns.length > 0 ? toLearns.map(this.renderToLearn) : 'Add something to learn!'}
         </ul>
         <div className="stats">

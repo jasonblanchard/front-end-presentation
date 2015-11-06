@@ -86,5 +86,6 @@ So how are people solving this problem?
  - Authentication/authorization
  - Global application state, like flash messages
 - SEO is weird
+- Testing is tricky
 - avoiding "loading" spinners is tricky
 - Still young and changing like crazy

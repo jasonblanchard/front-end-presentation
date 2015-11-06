@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
   actions: {
     createToLearn: function() {
       var name = this.get('newName');
-      
+
       this.set('error', '');
 
       if (this.get('isInValidInput')) {
@@ -27,9 +27,8 @@ export default Ember.Controller.extend({
           name: name,
           completed: false
         }).save();
+        this.set('newName', '');
       }
-
-      this.set('newName', '');
     }
   }
 });

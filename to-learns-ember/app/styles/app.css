@@ -14,8 +14,11 @@ label, .stats {
 
 .main-content {
   padding: 8px;
-  max-width: 350px;
+  max-width: 400px;
   margin: 0 auto;
+  background: #FFA274;
+  border-radius: 3px;
+  min-height: 130px;
 }
 
 a, a:visited {
@@ -23,8 +26,16 @@ a, a:visited {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+a:hover, a.active {
+  border-bottom: 3px solid #713571;
+}
+
+a.active {
+  font-weight: bold;
+}
+
+h1 a.active {
+  border-bottom: 0;
 }
 
 header {

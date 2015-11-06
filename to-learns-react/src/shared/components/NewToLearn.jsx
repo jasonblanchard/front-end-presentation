@@ -34,12 +34,20 @@ export default class NewToLearn extends Component {
   }
 
   render() {
+    const countClassNames = this.props.isInvalidInput(this.state.newName) ? 'error' : '';
+
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <div className="error">
+            {this.props.error}
+          </div>
           <label htmlFor="new-title">To Learn: </label>
           <input id="new-title" type="text" value={this.state.newName} onChange={this.handleChange} />
           <input type="submit" value="add" />
+          <span className={countClassNames}>
+            {140 - this.state.newName.length}
+          </span>
         </form>
       </div>
     );
@@ -48,4 +56,6 @@ export default class NewToLearn extends Component {
 
 NewToLearn.propTypes = {
   handleSubmit: PropTypes.func,
+  isInvalidInput: PropTypes.func,
+  error: PropTypes.string,
 };

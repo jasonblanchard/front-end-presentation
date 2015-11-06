@@ -10,15 +10,16 @@ export default class RootContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1><Link to="/">App</Link></h1>
+        <header className="clearfix">
+          <h1><Link to="/">Stuff To Learn</Link></h1>
+          <nav>
+            <ul>
+              <li><Link to="/about" activeClassName="active">about</Link></li>
+            </ul>
+          </nav>
+        </header>
 
-        <nav>
-          <ul>
-            <li><Link to="/about" activeClassName="active">About</Link></li>
-          </ul>
-        </nav>
-
-        <div>
+        <div className="main-content">
           {this.props.children}
         </div>
       </div>
