@@ -1,1 +1,10 @@
-Just another React base app structure. WIP. Nothing to see here.
+# To Learns on react
+## System Dependencies
+- Node
+- npm
+
+## Setup
+`npm install`
+
+## Run
+`npm run start:dev`

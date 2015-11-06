@@ -3,17 +3,23 @@
 <div>
   <%= form_tag :controller => :to_learn_collections, :action => :update do %>
     <%= hidden_field_tag '_method', 'put' %>
-    <ul>
-      <% @to_learns.each do |to_learn| %>
-        <li class="to-learn <%= to_learn.completed ? 'completed' : 'uncomplete'%>">
-          <%= check_box_tag 'completed_to_learns[]', to_learn.id, to_learn.completed %>
-          <%= to_learn.name %>
-          <%= hidden_field_tag 'all_to_learns[]', to_learn.id %>
-        </li>
+    <ul class="to-learns">
+      <% if @to_learns.empty? %>
+        Add something to learn!
+      <% else %>
+        <% @to_learns.each do |to_learn| %>
+          <li class="to-learn <%= to_learn.completed ? 'completed' : 'uncomplete'%>">
+            <%= check_box_tag 'completed_to_learns[]', to_learn.id, to_learn.completed %>
+            <%= to_learn.name %>
+            <%= hidden_field_tag 'all_to_learns[]', to_learn.id %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
 
-    <%= submit_tag 'Mark as complete' %>
+    <% if !@to_learns.empty? %>
+      <%= submit_tag 'Mark as complete' %>
+    <% end %>
   <% end %>
 </div>
 
@@ -21,7 +27,9 @@
   total: <%= @total_count %> | completed: <%= @completed_count %> | uncompleted: <%= @uncompleted_count %>
 </div>
 
-<%= form_tag :controller => :to_learn_collections, :action => :update do %>
-  <%= hidden_field_tag '_method', 'delete' %>
-  <%= submit_tag 'Delete completed' %>
+<% if !@to_learns.empty? %>
+  <%= form_tag :controller => :to_learn_collections, :action => :update do %>
+    <%= hidden_field_tag '_method', 'delete' %>
+    <%= submit_tag 'Delete completed' %>
+  <% end %>
 <% end %>

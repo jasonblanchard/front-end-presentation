@@ -1,18 +1,18 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 
 html {
   background: #F2844D;
@@ -21,6 +21,20 @@ html {
 
 body {
   margin: 0;
+  color: #3D3D3D;
+}
+
+label, .stats {
+  color: #AA5429;
+}
+
+.main-content {
+  padding: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #FFA274;
+  border-radius: 3px;
+  min-height: 130px;
 }
 
 a, a:visited {
@@ -28,34 +42,67 @@ a, a:visited {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+a:hover, a.active {
+  border-bottom: 3px solid #713571;
+}
+
+a.active {
+  font-weight: bold;
 }
 
 header {
   padding: 8px;
   background: #FFA274;
   margin-bottom: 20px;
+  text-align: center;
+}
 
-  h1 {
-    float: left;
-  }
+ul {
+  margin: 0;
 }
 
 nav {
-  ul {
-    padding: 0;
-    float: right;
-  }
+  position: absolute;
+  right: 10px;
+  top: 37px;
+}
 
-  li {
-    text-decoration: none;
-    display: inline-block;
-  }
+nav li {
+  text-decoration: none;
+  display: inline-block;
+}
+
+header h1 {
+  text-align: center;
 }
 
 .main-content {
   padding: 8px;
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 10px 5px;
+  font-size: 1em;
+  border-radius: 3px;
+  border: 0px;
+}
+
+input[type=submit] {
+  background: gainsboro;
+  border: 0;
+  border-radius: 3px;
+  padding: 12px 15px;
+  font-weight: bold;
+  outline-offset: 0;
+  font-size: .8em;
+  position: relative;
+  top: -2px;
+  margin: 5px 0;
+}
+
+input[type=submit]:hover {
+  background: #C7C7C7;
 }
 
 .clearfix:after {
