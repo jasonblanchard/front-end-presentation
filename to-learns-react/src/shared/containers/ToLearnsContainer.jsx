@@ -8,6 +8,8 @@ function increment() {
   return id;
 }
 
+let toLearnsCache = [];
+
 export default class ToLearnsContainer extends Component {
 
   constructor(props) {
@@ -16,6 +18,16 @@ export default class ToLearnsContainer extends Component {
     this.state = {
       toLearns: [],
     };
+  }
+
+  componentWillMount() {
+    this.setState({
+      toLearns: toLearnsCache,
+    });
+  }
+
+  componentWillUnmount() {
+    toLearnsCache = this.state.toLearns;
   }
 
   addToLearn(toLearn) {
