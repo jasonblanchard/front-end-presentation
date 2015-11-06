@@ -1,16 +1,35 @@
 import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from 'app/shared/actions/actions';
 import ToLearnsList from 'app/shared/components/ToLearnsList';
 import NewToLearn from 'app/shared/components/NewToLearn';
 
+let id = 100;
+function increment() {
+  id += 1;
+  return id;
+}
+
 export default class ToLearnsContainer extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      toLearns: [],
+    };
+  }
+
+  addToLearn(toLearn) {
+    const newToLearn = Object.assign({}, {id: increment()}, toLearn);
+    this.setState({
+      toLearns: [...this.state.toLearns, newToLearn],
+    });
+  }
+
   render() {
     return (
       <div>
-        <NewToLearn handleSubmit={this.props.addToLearn} />
-        <ToLearnsList toLearns={this.props.toLearns} />
+        <NewToLearn handleSubmit={this.addToLearn.bind(this)} />
+        <ToLearnsList toLearns={this.state.toLearns} />
       </div>
     );
   }
@@ -20,19 +39,3 @@ ToLearnsContainer.propTypes = {
   toLearns: PropTypes.array,
   addToLearn: PropTypes.func,
 };
-
-function mapStateToProps(state) {
-  return {
-    toLearns: state.toLearns,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  const actionMapping = {
-    addToLearn: actions.addToLearn,
-  };
-
-  return bindActionCreators(actionMapping, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToLearnsContainer);
