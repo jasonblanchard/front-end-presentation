@@ -37,7 +37,8 @@ export default class NewToLearn extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.newName} onChange={this.handleChange} />
+          <label htmlFor="new-title">To Learn: </label>
+          <input id="new-title" type="text" value={this.state.newName} onChange={this.handleChange} />
           <input type="submit" value="add" />
         </form>
       </div>

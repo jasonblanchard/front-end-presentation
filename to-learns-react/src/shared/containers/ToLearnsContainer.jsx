@@ -25,11 +25,15 @@ export default class ToLearnsContainer extends Component {
     });
   }
 
+  updateToLearn(toLearnId) {
+    console.log(toLearnId);
+  }
+
   render() {
     return (
       <div>
         <NewToLearn handleSubmit={this.addToLearn.bind(this)} />
-        <ToLearnsList toLearns={this.state.toLearns} />
+        <ToLearnsList toLearns={this.state.toLearns} handleChange={this.updateToLearn} />
       </div>
     );
   }
