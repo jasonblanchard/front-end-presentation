@@ -2,7 +2,8 @@
   <div class="error">
     {{error}}
   </div>
-  {{input type="text" id="new-to-learn" placeholder="What needs to be done?" value=newName}}
+  <label for="new-to-learn">To Learn: </label>
+  {{input type="text" id="new-to-learn" value=newName}}
   <input type="submit" value="Add"/>
   <span {{bind-attr class="isInValidInput"}}>
     {{characterCount}}

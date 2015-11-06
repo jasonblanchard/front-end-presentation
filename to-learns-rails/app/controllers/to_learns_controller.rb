@@ -3,6 +3,7 @@ class ToLearnsController < ApplicationController
   def index
     @to_learns = ToLearn.all
     @new_to_learn = ToLearn.new
+    @total_count = @to_learns.count
     @completed_count = @to_learns.select { |to_learn| to_learn.completed }.count
     @uncompleted_count = @to_learns.select { |to_learn| !to_learn.completed }.count
   end
