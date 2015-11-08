@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import ToLearnsList from 'app/shared/components/ToLearnsList';
 import NewToLearn from 'app/shared/components/NewToLearn';
 
@@ -22,6 +22,7 @@ export default class ToLearnsContainer extends Component {
 
     this.addToLearn = this.addToLearn.bind(this);
     this.updateToLearn = this.updateToLearn.bind(this);
+    this.destroyToLearn = this.destroyToLearn.bind(this);
   }
 
   componentWillMount() {
@@ -75,17 +76,18 @@ export default class ToLearnsContainer extends Component {
     });
   }
 
+  destroyToLearn(toLearnId) {
+    this.setState({
+      toLearns: this.state.toLearns.filter(toLearn => toLearn.id !== Number(toLearnId)),
+    });
+  }
+
   render() {
     return (
       <div>
         <NewToLearn handleSubmit={this.addToLearn} error={this.state.error} isInvalidInput={this.isInvalidInput} />
-        <ToLearnsList toLearns={this.state.toLearns} handleChange={this.updateToLearn} />
+        <ToLearnsList toLearns={this.state.toLearns} handleChange={this.updateToLearn} onClickDelete={this.destroyToLearn}/>
       </div>
     );
   }
 }
-
-ToLearnsContainer.propTypes = {
-  toLearns: PropTypes.array,
-  addToLearn: PropTypes.func,
-};
