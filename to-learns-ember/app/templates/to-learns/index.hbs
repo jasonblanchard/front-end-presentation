@@ -1,6 +1,9 @@
 <ul class="to-learns">
   {{#each toLearns}}
-  <li {{bind-attr class="completed"}}>{{input type="checkbox" checked=completed action="completeToLearn"}} {{name}}</li>
+  <li {{bind-attr class="completed"}}>
+    {{input type="checkbox" checked=completed action="completeToLearn"}} {{name}}
+    <a href="" {{action "removeToLearn" id}}>x</a>
+  </li>
   {{else}}
     Add something to learn!
   {{/each}}
