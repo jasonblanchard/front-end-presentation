@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resource :to_learn_collection
   get '/about' => 'home#about', :as => 'about'
 
+  namespace :api do
+    resources :to_learns, only: [:index]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
