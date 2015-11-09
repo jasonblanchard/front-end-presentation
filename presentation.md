@@ -8,6 +8,8 @@
 
 ## Traditional, server-rendered Apps
 
+- Rails example
+
 ---
 
 ## Traditional, server-rendered Apps
@@ -15,10 +17,6 @@
 - All (or most) state is managed server-side.
 - Update that state in batches with request-response process.
 - **Advantage of this: simplicity**.
-
----
-
-## Rails example
 
 ---
 
@@ -57,7 +55,9 @@ So how are people solving this problem?
 
 ## Two-way data bindings: Why not?
 
-- Complexity over time, lots of dependencies, hard to debug
+- Complexity as app grows
+- Complex dependency graph
+- Cascading changes - hard to debug
 
 ---
 
@@ -82,7 +82,7 @@ So how are people solving this problem?
 ## Challenges with front-end frameworks
 
 - Complexity
-- Hard things are easy and easy things are hard
+- "Hard things are easy and easy things are hard"
  - Authentication/authorization
  - Global application state, like flash messages
 - SEO is weird

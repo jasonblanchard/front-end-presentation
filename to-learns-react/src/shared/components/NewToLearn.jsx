@@ -43,11 +43,7 @@ export default class NewToLearn extends Component {
             {this.props.error}
           </div>
           <label htmlFor="new-title">To Learn: </label>
-          <input id="new-title" type="text" value={this.state.newName} onChange={this.handleChange} />
-          <input type="submit" value="add" />
-          <span className={countClassNames}>
-            {140 - this.state.newName.length}
-          </span>
+          <input id="new-title" type="text" value={this.state.newName} onChange={this.handleChange} /> <input type="submit" value="Add" /> <span className={countClassNames}>{140 - this.state.newName.length}</span>
         </form>
       </div>
     );
